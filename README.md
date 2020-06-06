@@ -24,9 +24,7 @@ At each instruction/word in the program, the square root of the sum of the numbe
 | 2 | move the tape-head left |
 | 3 (requires "!" and then another word "n" letters long) | if the current tape position has a 1 then go to instruction n-1, else continue to next instruction |
 
-an example program:
-
-```extraterrestrial yes perfect!ok aanrijdingsformulier no```
+an example program: ```extraterrestrial yes perfect!ok aanrijdingsformulier no```
 
 this then compiles into: `0 1 3!2 1 2`
 
@@ -38,9 +36,11 @@ which means the program will execute as follows:
 * step 4: (no) moves the tape-head left, to position 1.
 
 
-A wordwang program will always start with a tape of zeros, with the tape-head starting on position zero. The first instruction of the program is instruction zero.
+A wordwang program will always start with a set length tape of zeros, with the tape-head starting on position zero. The first instruction of the program is instruction zero.
 
-another example program: `cool I aanrijdingsformulier International beanie!no`, which will generate `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`
+Another example program: `cool I aanrijdingsformulier International beanie!no`, which will generate `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`, with the tape length of 10.
+
+**IMPORTANT:** The tape head can move to positions that are not accessable in the tape. So the in a length-10 tape the tape-head can move to -1, -2, -3, etc... and 11, 12, 13, etc... **However**, the tape-head cannot write to positions that don't exist in the tape, so if the tape-head were at any position outside the tape, it wouldnt be able to write there.  
 
 ---
 

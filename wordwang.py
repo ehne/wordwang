@@ -9,7 +9,8 @@ inputString = "extraterrestrial yes perfect!ok aanrijdingsformulier no"
 headPos = 0
 instructionPos = 0
 
-tape = [0 for i in range(10)]
+tapeLength = 10
+tape = [0 for i in range(tapeLength)]
 
 def splitWordsOut(_i):
     output = []
@@ -67,4 +68,6 @@ while instructionPos<len(convertedInstructions)+1:
     print(f"tape-head is at: {headPos}")
     print(f"{tape}")
     
+
+# fix the program not actually exiting, just throwing an error
     
