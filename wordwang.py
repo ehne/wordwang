@@ -4,7 +4,7 @@ import math
 
 inputString = "extraterrestrial yes perfect!ok aanrijdingsformulier no"
 
-#inputString = "cool I aanrijdingsformulier International beanie!no"
+#inputString = "cool I autoschadehersteller International beanie!no"
 
 headPos = 0
 instructionPos = 0

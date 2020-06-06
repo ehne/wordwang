@@ -38,7 +38,7 @@ which means the program will execute as follows:
 
 A wordwang program will always start with a set length tape of zeros, with the tape-head starting on position zero. The first instruction of the program is instruction zero.
 
-Another example program: `cool I aanrijdingsformulier International beanie!no`, which will generate `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`, with the tape length of 10.
+Another example program: `cool I autoschadehersteller International beanie!no`, which will generate `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`, with the tape length of 10.
 
 **IMPORTANT:** The tape head can move to positions that are not accessable in the tape. So the in a length-10 tape the tape-head can move to -1, -2, -3, etc... and 11, 12, 13, etc... **However**, the tape-head cannot write to these positions.
 
