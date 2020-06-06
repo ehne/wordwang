@@ -40,7 +40,7 @@ A wordwang program will always start with a set length tape of zeros, with the t
 
 Another example program: `cool I aanrijdingsformulier International beanie!no`, which will generate `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`, with the tape length of 10.
 
-**IMPORTANT:** The tape head can move to positions that are not accessable in the tape. So the in a length-10 tape the tape-head can move to -1, -2, -3, etc... and 11, 12, 13, etc... **However**, the tape-head cannot write to positions that don't exist in the tape, so if the tape-head were at any position outside the tape, it wouldnt be able to write there.  
+**IMPORTANT:** The tape head can move to positions that are not accessable in the tape. So the in a length-10 tape the tape-head can move to -1, -2, -3, etc... and 11, 12, 13, etc... **However**, the tape-head cannot write to these positions.
 
 ---
 
