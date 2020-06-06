@@ -4,6 +4,8 @@ import math
 
 inputString = "extraterrestrial yes perfect!ok aanrijdingsformulier no"
 
+#inputString = "cool I aanrijdingsformulier International beanie!no"
+
 headPos = 0
 instructionPos = 0
 
@@ -32,24 +34,37 @@ def convertToInstructions(_i):
 
     
 convertedInstructions = convertToInstructions(inputString)
-
+print(convertedInstructions)
 # run the actual program, probs using while true i'd guess.
 
 while instructionPos<len(convertedInstructions)+1:
+    print("")
     currentInstruction = convertedInstructions[instructionPos]
+    print(f"tape after step {instructionPos}:")
     
     if currentInstruction[0] == 0:
+        # flip the value of the current tape position
         tape[headPos] = (tape[headPos] + 1) % 2
-        print("0")
+        instructionPos += 1
+        print("instruction: 0")
     if currentInstruction[0] == 1:
+        # move the tape-head right
         headPos += 1
-        print("1")
+        instructionPos += 1
+        print("instruction: 1")
     if currentInstruction[0] == 2:
+        # move the tape-head left
         headPos -= 1
-        print("2")
+        instructionPos += 1
+        print("instruction: 2")
     if currentInstruction[0] == 3:
-        print("3")
-
-    print(f"tape after step {instructionPos}: {tape}")
-    instructionPos += 1
+        # check if current tape pos is 1, then move to either instruction n or the next one.
+        if tape[headPos]:
+            instructionPos = currentInstruction[1]-1
+        else:
+            instructionPos += 1
+        print(f"instruction: 3 {currentInstruction[1]-1}")
+    print(f"tape-head is at: {headPos}")
+    print(f"{tape}")
+    
     

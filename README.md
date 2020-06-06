@@ -38,7 +38,9 @@ which means the program will execute as follows:
 * step 4: (no) moves the tape-head left, to position 1.
 
 
-A wordwang program will always start with an infinite tape of zeros, with the tape-head starting on position zero. The first instruction of the program is instruction zero.
+A wordwang program will always start with a tape of zeros, with the tape-head starting on position zero. The first instruction of the program is instruction zero.
+
+another example program: `cool I aanrijdingsformulier International beanie!no`, which will generate `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`
 
 ---
 
