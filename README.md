@@ -15,7 +15,7 @@
 
 A program in wordwang consists of a string of words with spaces between them, and sometimes an exclamation point between two words and no space. 
 
-At each instruction/word in the program, the square root of the sum of the number of letters in the word and the instruction number is taken `(math.root(noOfLetters + instNumber))`. then the resulting (rounded) modulo 4 determines what instruction to follow. 
+At each instruction/word in the program, the square root of the sum of the number of letters in the word and the instruction number is taken `(math.sqrt(noOfLetters + instNumber))`. then the resulting (rounded) modulo 4 determines what instruction to follow. 
 
 | Wordwang has 4 instructions |  |
 | --- | --- |
