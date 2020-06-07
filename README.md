@@ -44,10 +44,13 @@ Another example program: `cool a autoschadehersteller International beanie!I`, w
 
 **IMPORTANT:** The tape head can move to positions that are outside of the range of the tape. So, in a length-10 tape the tape-head can move to -1, -2, -3, etc... and 11, 12, 13, etc... **However**, the tape-head cannot write to these positions.
 
+### Implementations:
+* [python (wordwang.py)](https://github.com/ehne/wordwang/blob/master/wordwang.py)
+
 ---
 
 > no, i do not know a good way to program things in wordwang.
 
 > yes, i'm pretty sure wordwang is turing-complete. 
  
-> made by darcylf in 2020
+> made by [darcylf](https://darcylf.me) in 2020
