@@ -1,9 +1,1 @@
-{
-  "name": "chootest",
-  "short_name": "chootest",
-  "description": "a test choo project",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#000",
-  "theme_color": "#000"
-}
+{"name":"wordwang demo | darcylf","short_name":"wordwang","description":"a demo for wordwang","start_url":"/","display":"standalone","background_color":"#000","theme_color":"#000","icons":[{"src":"/assets/icon.png","type":"image/png","sizes":"512x512"}]}
