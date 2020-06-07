@@ -13,6 +13,8 @@
 
 > A language-agnostic word-based esoteric programming language based off [Wang's B-machine](https://en.wikipedia.org/wiki/Wang_B-machine)
 
+> view the demo & run your own wordwang programs at [https://darcylf.me/wordwang](https://darcylf.me/wordwang)
+
 A program in wordwang consists of a string of words with spaces between them, and sometimes an exclamation point between two words and no space. 
 
 At each instruction/word in the program, the square root of the sum of the number of letters in the word and the instruction number is taken `(math.sqrt(noOfLetters + instNumber))`. then the resulting (rounded) modulo 4 determines what instruction to follow. 
