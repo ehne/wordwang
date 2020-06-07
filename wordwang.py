@@ -2,9 +2,9 @@
 
 import math
 
-inputString = "extraterrestrial yes perfect!ok aanrijdingsformulier no"
+#inputString = "extraterrestrial yes perfect!ok aanrijdingsformulier no"
 
-#inputString = "cool I autoschadehersteller International beanie!no"
+inputString = "cool a autoschadehersteller International beanie!I"
 
 headPos = 0
 instructionPos = 0
