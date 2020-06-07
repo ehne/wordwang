@@ -38,14 +38,17 @@ convertedInstructions = convertToInstructions(inputString)
 print(convertedInstructions)
 # run the actual program, probs using while true i'd guess.
 
-while instructionPos<len(convertedInstructions)+1:
+while instructionPos<=len(convertedInstructions)-1:
     print("")
     currentInstruction = convertedInstructions[instructionPos]
     print(f"tape after step {instructionPos}:")
     
     if currentInstruction[0] == 0:
         # flip the value of the current tape position
-        tape[headPos] = (tape[headPos] + 1) % 2
+        try:
+            tape[headPos] = (tape[headPos] + 1) % 2
+        except:
+            break
         instructionPos += 1
         print("instruction: 0")
     if currentInstruction[0] == 1:
@@ -69,5 +72,5 @@ while instructionPos<len(convertedInstructions)+1:
     print(f"{tape}")
     
 
-# fix the program not actually exiting, just throwing an error
+# x fix the program not actually exiting, just throwing an error
     
