@@ -48,7 +48,7 @@ A wordwang program will always start with a set length tape of zeros, with the t
 * output: `[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]`
 
 **Truth Machine:**
-* input: `cool!k`
+* input: `beanies!K`
 * output: `[0]`
 ### Implementations:
 * [python (wordwang.py)](https://github.com/ehne/wordwang/blob/master/wordwang.py)
