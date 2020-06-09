@@ -50,6 +50,8 @@ A wordwang program will always start with a set length tape of zeros, with the t
 **Truth Machine:**
 * input: `cool!k`
 * output: `[0]`
+### Implementations:
+* [python (wordwang.py)](https://github.com/ehne/wordwang/blob/master/wordwang.py)
 
 ---
 
@@ -57,4 +59,4 @@ A wordwang program will always start with a set length tape of zeros, with the t
 
 > yes, i'm pretty sure wordwang is turing-complete. 
  
-> made by darcylf in 2020
+> made by [darcylf](https://darcylf.me) in 2020
