@@ -4,98 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
-      src="./5b7710f5f27fbf7a/bundle.js"
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.1/dist/alpine.min.js"
       defer
-      integrity="sha512-W3cQ9fJ/v3qk+Vmf997olxKTDLvpBMs5y0m+Vp/XgybwhVxi1T2xFFFeRtlYUUqu28SZ6cJZfx86UmI3eIh7+g=="
     ></script>
-    <script>
-      (function (a) {
-        "use strict";
-        var b = function (b, c, d) {
-          function e(a) {
-            return h.body
-              ? a()
-              : void setTimeout(function () {
-                  e(a);
-                });
-          }
-          function f() {
-            i.addEventListener && i.removeEventListener("load", f),
-              (i.media = d || "all");
-          }
-          var g,
-            h = a.document,
-            i = h.createElement("link");
-          if (c) g = c;
-          else {
-            var j = (h.body || h.getElementsByTagName("head")[0]).childNodes;
-            g = j[j.length - 1];
-          }
-          var k = h.styleSheets;
-          (i.rel = "stylesheet"),
-            (i.href = b),
-            (i.media = "only x"),
-            e(function () {
-              g.parentNode.insertBefore(i, c ? g : g.nextSibling);
-            });
-          var l = function (a) {
-            for (var b = i.href, c = k.length; c--; )
-              if (k[c].href === b) return a();
-            setTimeout(function () {
-              l(a);
-            });
-          };
-          return (
-            i.addEventListener && i.addEventListener("load", f),
-            (i.onloadcssdefined = l),
-            l(f),
-            i
-          );
-        };
-        "undefined" != typeof exports ? (exports.loadCSS = b) : (a.loadCSS = b);
-      })("undefined" != typeof global ? global : this);
-      (function (a) {
-        if (a.loadCSS) {
-          var b = (loadCSS.relpreload = {});
-          if (
-            ((b.support = function () {
-              try {
-                return a.document
-                  .createElement("link")
-                  .relList.supports("preload");
-              } catch (b) {
-                return !1;
-              }
-            }),
-            (b.poly = function () {
-              for (
-                var b = a.document.getElementsByTagName("link"), c = 0;
-                c < b.length;
-                c++
-              ) {
-                var d = b[c];
-                "preload" === d.rel &&
-                  "style" === d.getAttribute("as") &&
-                  (a.loadCSS(d.href, d, d.getAttribute("media")),
-                  (d.rel = null));
-              }
-            }),
-            !b.support())
-          ) {
-            b.poly();
-            var c = a.setInterval(b.poly, 300);
-            a.addEventListener &&
-              a.addEventListener("load", function () {
-                b.poly(), a.clearInterval(c);
-              }),
-              a.attachEvent &&
-                a.attachEvent("onload", function () {
-                  a.clearInterval(c);
-                });
-          }
-        }
-      })(this);
-    </script>
     <link rel="manifest" href="./manifest.json" />
     <meta name="description" content="a demo for wordwang" />
     <meta name="theme-color" content="#000" />
@@ -755,11 +666,11 @@
       <section id="demo">
         <h2 style="display: none;">Demo:</h2>
         <p></p>
-        <fieldset>
+        <fieldset x-data="state">
           <legend>[ wordwang demo ]</legend>
           <form onsubmit="">
             <label for="ww-code">Your wordwang code:</label>
-            <textarea name="ww-code" rows="4">
+            <textarea name="ww-code" rows="4" x-model="wwCode">
 cool a autoschadehersteller International beanie!Ik</textarea
             >
             <label for="ww-tape-length">The tape length: </label>
@@ -768,20 +679,120 @@ cool a autoschadehersteller International beanie!Ik</textarea
               id="ww-tape-length"
               value="10"
               name="ww-tape-length"
+              x-model="wwTapeLength"
             />
-            <button type="submit">Send</button>
+            <button type="button" @click="wwTapeOutput=wordwang()">Send</button>
           </form>
 
           <form>
             <p></p>
             <label for="ww-output">Output tape:</label>
-            <input type="text" id="ww-output" value="" readonly="readonly" />
+            <input
+              type="text"
+              id="ww-output"
+              value=""
+              readonly="readonly"
+              x-model="wwTapeOutput"
+            />
           </form>
         </fieldset>
       </section>
     </main>
     <footer>
-      <p>made by <a href="https://darcylf.me">darcylf</a> in 2020</p>
+      <p>
+        made by <a href="https://darcylf.me">darcylf</a> as part of
+        <a href="https://darcylf.me/unincorporated-languages"
+          >Unincorporated Languages</a
+        >
+        in 2020
+      </p>
     </footer>
+    <script>
+      let state = {
+        wwCode: "cool a autoschadehersteller International beanie!Ik",
+        wwTapeOutput: "",
+        wwTapeLength: 10,
+      };
+
+      function wordwang() {
+        var headPos = 0;
+        var instructionPos = 0;
+        var tapeLength = parseInt(state.wwTapeLength);
+        var instructions = state.wwCode;
+        var tape = new Array(tapeLength).fill(0);
+        var inst = convToInst(instructions);
+        console.log(inst);
+        console.log(tape);
+        prog: {
+          while (instructionPos <= inst.length - 1) {
+            ///console.log("")
+            var currentInstruction = inst[instructionPos];
+            //console.log(`tape after instructionPos ${instructionPos}:`)
+            switch (currentInstruction[0]) {
+              case 0:
+                try {
+                  tape[headPos] = (tape[headPos] + 1) % 2;
+                } catch (error) {
+                  break prog;
+                }
+
+                instructionPos += 1;
+                //console.log("instruction: 0")
+
+                break;
+              case 1:
+                headPos += 1;
+                instructionPos += 1;
+                //console.log("instruction: 1")
+                break;
+              case 2:
+                headPos -= 1;
+                instructionPos += 1;
+                //console.log("instruction: 2")
+                break;
+              case 3:
+                if (tape[headPos] == 1) {
+                  instructionPos = currentInstruction[1] - 1;
+                } else {
+                  instructionPos += 1;
+                }
+                break;
+              default:
+                instructionPos += 1;
+                break;
+            }
+            //console.log(`tape is at: ${headPos}`)
+            //console.log(`${tape}`)
+          }
+        }
+        //tape.pop()
+        return tape.slice(0, tapeLength);
+      }
+      // splits the string by spaces, then splits the strings into another array by "!"
+      function splitWordsOut(_i) {
+        var output = [];
+        _i.split(" ").forEach((el) => {
+          output.push(el.split("!"));
+        });
+        return output;
+      }
+
+      function convToInst(_i) {
+        var outInstructions = [];
+        var splitWordsList = splitWordsOut(_i);
+        // goes through and calculates what function to use
+        splitWordsList.forEach(function (el, index) {
+          var instructionType = Math.round(Math.sqrt(el[0].length + index)) % 4;
+          //console.log(instructionType)
+          var instructionList = [instructionType];
+          if (el.length > 1) {
+            instructionList.push(el[1].length);
+          }
+          outInstructions.push(instructionList);
+        });
+        console.log(outInstructions);
+        return outInstructions;
+      }
+    </script>
   </body>
 </html>
