@@ -52,6 +52,7 @@ A wordwang program will always start with a set length tape of zeros, with the t
 * output: `[0]`
 ### Implementations:
 * [python (wordwang.py)](https://github.com/ehne/wordwang/blob/master/wordwang.py)
+* [javascript (wordwang.js)](https://github.com/ehne/wordwang/blob/master/wordwang.js)
 
 ---
 
